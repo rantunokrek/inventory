@@ -1,0 +1,44 @@
+//using node v20.9.0
+//using npm 10.1.0
+// composer create-project --prefer-dist laravel/laravel laravel-inventory "5.8.*"
+// public function boot()
+{
+Schema::defaultStringLength(191);
+}
+// create database inventory
+// welcome.php
+<script src="{{asset('js/app.js')}}"></script>
+// app vue router import app.js
+
+require('./bootstrap');
+window.Vue = require('vue');
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+
+Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
+const app = new Vue({
+el: '#app',
+});
+// route and vue welcome.php
+<!-- link -->
+<router-link to="/">Go to Home</router-link>
+<!-- vue router -->
+<router-view></router-view>
+// use csrf-token version 5.8
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+//route connect the file
+//app.js
+import { routes } from './routes';
+// routes.js
+export const routes = [
+
+]
+
+
+// route na payle
+Route::get('/{vue_capture?}', function () {
+return view('welcome');
+})->where('vue_capture', '[\/\w\.-]*');
