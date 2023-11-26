@@ -13,13 +13,14 @@
                                              link to reset your password.</div>
                                         <form>
                                              <div class="form-floating mb-3">
-                                                  <input class="form-control" id="inputEmail" type="email"
+                                                  <input name="email" class="form-control" id="inputEmail" type="email"
                                                        placeholder="name@example.com" />
                                                   <label for="inputEmail">Email address</label>
                                              </div>
                                              <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                                   <router-link to="/"> return login </router-link>
-                                                  <a class="btn btn-primary" href="login.html">Reset Password</a>
+
+                                                  <button type="submit" class="btn btn-primary"> Reset Password</button>
                                              </div>
                                         </form>
                                    </div>

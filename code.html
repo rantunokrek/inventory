@@ -42,3 +42,46 @@ export const routes = [
 Route::get('/{vue_capture?}', function () {
 return view('welcome');
 })->where('vue_capture', '[\/\w\.-]*');
+
+
+// jwt auth use korbo
+composer require tymon/jwt-auth na diye
+composer.js giye "tymon/jwt-auth": "dev-develop" diye composer update korle hobe
+// publish
+https://jwt-auth.readthedocs.io/en/docs/laravel-installation/
+// secret use
+php artisan jwt:secret
+
+chech secret from env file
+
+php artisan make:controller AuthController
+
+for example/ docomentation
+https://jwt-auth.readthedocs.io/en/docs/lumen-installation/
+
+
+
+
+Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+
+'aliases' => [
+'JWTAuth' =>Tymon\JWTAuth\Facades\JWTAuth::class,
+'JWTFactory' =>Tymon\JWTAuth\Facades\JWTFactory::class,
+]
+
+
+
+// if has Class JWT does not exist
+//old middleware JWT without can not use JWT
+$this->middleware('JWT',['except' => ['login','signup']]);
+//new fix
+$this->middleware('auth:api',['except' => ['login','signup']]);
+//create middleware JWT
+php artisan make:middleware JWT
+
+use Tymon\JWTAuth\Facades\JWTAuth;
+public function handle($request, Closure $next)
+{
+JWTAuth::parseToken()->authenticate();
+
+}

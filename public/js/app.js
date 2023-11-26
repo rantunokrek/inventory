@@ -1758,12 +1758,12 @@ var render = function render() {
     attrs: {
       to: "/"
     }
-  }, [_vm._v(" return login ")]), _vm._v(" "), _c("a", {
+  }, [_vm._v(" return login ")]), _vm._v(" "), _c("button", {
     staticClass: "btn btn-primary",
     attrs: {
-      href: "login.html"
+      type: "submit"
     }
-  }, [_vm._v("Reset Password")])], 1)])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(" Reset Password")])], 1)])]), _vm._v(" "), _c("div", {
     staticClass: "card-footer text-center py-3"
   }, [_c("div", {
     staticClass: "small"
@@ -1791,6 +1791,7 @@ var staticRenderFns = [function () {
   }, [_c("input", {
     staticClass: "form-control",
     attrs: {
+      name: "email",
       id: "inputEmail",
       type: "email",
       placeholder: "name@example.com"
@@ -1845,12 +1846,12 @@ var render = function render() {
     attrs: {
       to: "/forgot"
     }
-  }, [_vm._v(" Forgot password ")]), _vm._v(" "), _c("a", {
+  }, [_vm._v(" Forgot password ")]), _vm._v(" "), _c("button", {
     staticClass: "btn btn-primary",
     attrs: {
-      href: "index.html"
+      type: "submit"
     }
-  }, [_vm._v("Login")])], 1)])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(" Login")])], 1)])]), _vm._v(" "), _c("div", {
     staticClass: "card-footer text-center py-3"
   }, [_c("div", {
     staticClass: "small"
@@ -1878,6 +1879,7 @@ var staticRenderFns = [function () {
   }, [_c("input", {
     staticClass: "form-control",
     attrs: {
+      name: "email",
       id: "inputEmail",
       type: "email",
       placeholder: "name@example.com"
@@ -1896,6 +1898,7 @@ var staticRenderFns = [function () {
   }, [_c("input", {
     staticClass: "form-control",
     attrs: {
+      name: "password",
       id: "inputPassword",
       type: "password",
       placeholder: "Password"
@@ -1914,6 +1917,7 @@ var staticRenderFns = [function () {
   }, [_c("input", {
     staticClass: "form-check-input",
     attrs: {
+      name: "remeberPass",
       id: "inputRememberPassword",
       type: "checkbox",
       value: ""
@@ -1995,6 +1999,7 @@ var staticRenderFns = [function () {
   }, [_c("input", {
     staticClass: "form-control",
     attrs: {
+      name: "firstName",
       id: "inputFirstName",
       type: "text",
       placeholder: "Enter your first name"
@@ -2010,6 +2015,7 @@ var staticRenderFns = [function () {
   }, [_c("input", {
     staticClass: "form-control",
     attrs: {
+      name: "lastName",
       id: "inputLastName",
       type: "text",
       placeholder: "Enter your last name"
@@ -2023,6 +2029,7 @@ var staticRenderFns = [function () {
   }, [_c("input", {
     staticClass: "form-control",
     attrs: {
+      name: "email",
       id: "inputEmail",
       type: "email",
       placeholder: "name@example.com"
@@ -2040,6 +2047,7 @@ var staticRenderFns = [function () {
   }, [_c("input", {
     staticClass: "form-control",
     attrs: {
+      name: "password",
       id: "inputPassword",
       type: "password",
       placeholder: "Create a password"
@@ -2055,6 +2063,7 @@ var staticRenderFns = [function () {
   }, [_c("input", {
     staticClass: "form-control",
     attrs: {
+      name: "confirmPass",
       id: "inputPasswordConfirm",
       type: "password",
       placeholder: "Confirm password"
@@ -2067,12 +2076,12 @@ var staticRenderFns = [function () {
     staticClass: "mt-4 mb-0"
   }, [_c("div", {
     staticClass: "d-grid"
-  }, [_c("a", {
-    staticClass: "btn btn-primary btn-block",
+  }, [_c("button", {
+    staticClass: "btn btn-primary",
     attrs: {
-      href: "login.html"
+      type: "submit"
     }
-  }, [_vm._v("Create Account")])])])])]);
+  }, [_vm._v(" Create\n                                                            Acount")])])])])]);
 }];
 render._withStripped = true;
 
