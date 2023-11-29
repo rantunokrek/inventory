@@ -4,7 +4,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 import { routes } from './routes';
-
+import User from './helpers/User';
+window.User = User;
 const router = new VueRouter({
     routes,
     mode: 'history'
