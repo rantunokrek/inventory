@@ -39,7 +39,7 @@
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li>  <router-link  class="dropdown-item" to="/logout">Logout </router-link></li>
                     </ul>
                 </li>
             </ul>
@@ -71,10 +71,7 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
+                  
                          {{-- Router vue ekhane page load hobe --}}
                          <router-view></router-view>
                          

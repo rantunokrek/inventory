@@ -30,7 +30,10 @@ class AuthController extends Controller
     public function login(Request $request)
     {
 
-
+        $validatedData = $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
         $credentials = $request->only('email', 'password');
 
         if ($token = $this->guard()->attempt($credentials)) {
@@ -108,7 +111,7 @@ class AuthController extends Controller
          $validatedData = $request->validate([
             'email' => 'required|unique:users|max:255',
             'name' => 'required',
-            'password' => 'required|min:8|confirmed',
+            'password' => 'required|min:6|confirmed',
         ]);
 
          $data=array();

@@ -26,7 +26,7 @@ class User {
 
      logout() {
           AppStorage.clear()
-          this.$router.push({ name: '/' })
+          window.location = '/'
      }
 
      name() {

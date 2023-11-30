@@ -10,28 +10,24 @@
                                              <h3 class="text-center font-weight-light my-4">Create Account</h3>
                                         </div>
                                         <div class="card-body">
-                                             <form>
-                                                  <div class="row mb-3">
-                                                       <div class="col-md-6">
-                                                            <div class="form-floating mb-3 mb-md-0">
-                                                                 <input name="firstName" class="form-control"
-                                                                      id="inputFirstName" type="text"
-                                                                      placeholder="Enter your first name" />
-                                                                 <label for="inputFirstName">First name</label>
-                                                            </div>
-                                                       </div>
-                                                       <div class="col-md-6">
-                                                            <div class="form-floating">
-                                                                 <input name="lastName" class="form-control"
-                                                                      id="inputLastName" type="text"
-                                                                      placeholder="Enter your last name" />
-                                                                 <label for="inputLastName">Last name</label>
-                                                            </div>
-                                                       </div>
+                                             <form @submit.prevent="signup">
+
+                                                  <div class="form-floating mb-3">
+                                                       <input name="firstName" class="form-control" id="inputFirstName"
+                                                            type="text" placeholder="Enter your first name"
+                                                            v-model="form.name" />
+                                                       <small class="text-danger" v-if="errors.name">{{
+                                                            errors.name[0]
+                                                       }}</small>
+                                                       <label for="inputFirstName">Full name</label>
                                                   </div>
+
                                                   <div class="form-floating mb-3">
                                                        <input name="email" class="form-control" id="inputEmail" type="email"
-                                                            placeholder="name@example.com" />
+                                                            placeholder="name@example.com" v-model="form.email" />
+                                                       <small class="text-danger" v-if="errors.email">{{
+                                                            errors.email[0]
+                                                       }}</small>
                                                        <label for="inputEmail">Email address</label>
                                                   </div>
                                                   <div class="row mb-3">
@@ -39,7 +35,11 @@
                                                             <div class="form-floating mb-3 mb-md-0">
                                                                  <input name="password" class="form-control"
                                                                       id="inputPassword" type="password"
-                                                                      placeholder="Create a password" />
+                                                                      placeholder="Create a password"
+                                                                      v-model="form.password" />
+                                                                 <small class="text-danger" v-if="errors.password">{{
+                                                                      errors.password[0]
+                                                                 }}</small>
                                                                  <label for="inputPassword">Password</label>
                                                             </div>
                                                        </div>
@@ -47,7 +47,12 @@
                                                             <div class="form-floating mb-3 mb-md-0">
                                                                  <input name="confirmPass" class="form-control"
                                                                       id="inputPasswordConfirm" type="password"
-                                                                      placeholder="Confirm password" />
+                                                                      placeholder="Confirm password"
+                                                                      v-model="form.password_confirmation" />
+                                                                 <small class="text-danger"
+                                                                      v-if="errors.password_confirmation">{{
+                                                                           errors.password_confirmation[0]
+                                                                      }}</small>
                                                                  <label for="inputPasswordConfirm">Confirm Password</label>
                                                             </div>
                                                        </div>
@@ -77,6 +82,49 @@
  
  
 <script>
+
+export default {
+     created() {
+          if (!User.loggedIn()) {
+               this.$router.push({ name: 'home' })
+          }
+     },
+
+     data() {
+          return {
+               form: {
+                    name: '',
+                    email: '',
+                    password: '',
+                    password_confirmation: ''
+
+               },
+               errors: {
+
+               }
+
+          }
+     },
+     // dataEnd
+     methods: {
+          signup() {
+               axios.post('/api/auth/signup', this.form)
+                    .then(res => {
+                         User.responseAfterLogin(res)
+                         Toast.fire({
+                              icon: "success",
+                              type: 'success',
+                              title: "Register in successfully"
+                         });
+                         this.$router.push({ name: 'home' })
+                    })
+                    .catch(error => this.errors = error.response.data.errors)
+
+
+          }
+     }
+     // methodsEnd
+}
 
 </script>
  
