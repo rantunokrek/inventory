@@ -37,6 +37,46 @@
  
  
 <script>
+export default {
+     created() {
+          if (User.loggedIn()) {
+               this.$router.push({ name: 'home' })
+          }
+     },
+
+     data() {
+          return {
+               form: {
+                    email: ''
+               
+
+               },
+               errors: {
+
+               }
+
+          }
+     },
+     // dataEnd
+     methods: {
+          forgot() {
+               axios.post('/api/auth/forgot', this.form)
+                    .then(res => {
+                         User.responseAfterLogin(res)
+                         Toast.fire({
+                              icon: "success",
+                              type: 'success',
+                              title: "Login in successfully"
+                         });
+                         this.$router.push({ name: 'home' })
+                    })
+                    .catch(error => this.errors = error.response.data.errors)
+        
+
+          }
+     }
+     // methodsEnd
+}
 
 </script>
  

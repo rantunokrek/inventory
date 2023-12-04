@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\EmployeeController;
 use Illuminate\Support\Facades\Route; 
 use App\Http\Controllers\AuthController;
 
@@ -17,3 +18,5 @@ Route::group([
     Route::post('me', 'AuthController@me');
 
 });
+
+Route::resource('/employee', 'Api\EmployeeController');

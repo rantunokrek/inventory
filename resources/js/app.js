@@ -6,6 +6,9 @@ Vue.use(VueRouter)
 import { routes } from './routes';
 import User from './helpers/User';
 window.User = User;
+import Notification from './helpers/Notification';
+window.Notification = Notification;
+
 
 //  sweetalert2
 //sweet alert start

@@ -1,3 +1,7 @@
+
+C:\xampp\htdocs\laravel-inventory
+C:\admin-templates\startbootstrap-sb-admin-gh-pages
+
 //using node v20.9.0
 //using npm 10.1.0
 // composer create-project --prefer-dist laravel/laravel laravel-inventory "5.8.*"
@@ -85,3 +89,32 @@ public function handle($request, Closure $next)
 JWTAuth::parseToken()->authenticate();
 
 }
+
+login done
+register done
+Noty installation
+https://ned.im/noty/#/installation
+
+name
+email
+address
+salary
+joiningDate
+nid
+file
+phone
+
+
+php artisan make:model Employee -m
+php artisan make:controller Api/EmployeedController -r
+php artisan migrate
+
+composer require intervention/image
+config/app.php
+Intervention\Image\ImageServiceProvider::class
+$aliases
+'Image' => Intervention\Image\Facades\Image::class
+published
+php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravelRecent"
+
+

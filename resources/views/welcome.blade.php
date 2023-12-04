@@ -17,9 +17,11 @@
 
     </head>
     </head>
-    <body class="sb-nav-fixed">
+    <body>
         <div id="app">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" id="topbar" style="display: none"
+         v-show="$route.path === '/' || $route.path === '/register' || $route.path === '/forgot'
+        ? false : true" >
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
             <!-- Sidebar Toggle-->
@@ -44,19 +46,34 @@
                 </li>
             </ul>
         </nav>
-        <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <div id="layoutSidenav" >
+            <div id="layoutSidenav_nav" id="leftbar" style="display:none;"  v-show="$route.path === '/' 
+            || $route.path === '/register' 
+            || $route.path === '/forgot'
+            ? false : true" >
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion" >
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
                             <a class="nav-link" href="index.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                <router-link to="/">Dashboard </router-link>
+                                <router-link  class="nav-link" to="/">Dashboard </router-link>
                             </a>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Employee
+                               
+                            </a>
+                            <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <router-link  class="nav-link" to="/employee-store">Add Employee </router-link>
+                                    <router-link  class="nav-link" to="/employee">Employee List </router-link>
+                                  
+                                </nav>
+                            </div>
                             <a class="nav-link" >
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                <router-link to="/register"> Register  </router-link>
+                                <router-link  to="/register"> Register  </router-link>
                             </a>
                       
                             
@@ -93,14 +110,22 @@
             </div>
         </div>
      </div>
+     <script>
+        let token = localStorage.getItem('token');
+        if (token) {
+            $('#topbar').css("display", "");
+            $('#leftbar').css("display", "");
+            
+        }
+     </script>
         <script src="{{asset('js/app.js')}}"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="{{asset('backend/js/scripts.js')}}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="{{asset('assets/demo/chart-area-demo.js')}}"></script>
+        <script src="{{asset('assets/demo/chart-bar-demo.js')}}"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-        <script src="js/datatables-simple-demo.js"></script>
+        <script src="{{asset('backend/js/datatables-simple-demo.js')}}"></script>
 
 
 
