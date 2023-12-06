@@ -9,6 +9,7 @@ let Home = require('./components/home.vue').default;
 // employee
 let storeEmployee = require('./components/employee/create.vue').default;
 let EmployeeIndex = require('./components/employee/index.vue').default;
+let EmployeeEdit = require('./components/employee/edit.vue').default;
 
 export const routes = [
      { path: '/', component: login, name: '/' },
@@ -18,6 +19,8 @@ export const routes = [
      { path: '/forgot', component: forgot, name: 'forgot' },
      { path: '/employee-store', component: storeEmployee, name: '/employee-store' },
      { path: '/employee', component: EmployeeIndex, name: 'employee' },
+     { path: '/employee-edit/:id', component: EmployeeEdit, name: 'employee-edit' },
+
 
 
 ]
