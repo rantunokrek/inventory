@@ -5,19 +5,20 @@
                     <div class="row justify-content-center">
                          <div class="col-lg-12">
                               <div class="card shadow-lg border-0 rounded-lg mt-5">
+
+
                                    <div class="card-header">
 
                                         <i class="fas fa-chart-area"></i>
-                                        <a href="" class="" style="font-weight:bold; font-size: 18px;"> Dashboard
-                                        </a> / <span>
-                                             Add Employee </span>
-                                        <router-link to="/employee" class="btn btn-sm btn-primary" id="add_new">
-                                             Employee List</router-link>
-
+                                        <a href="" class="" style="font-weight:bold; font-size: 18px;"> DataTable
+                                             Example</a> / <span>
+                                             Add Supplier </span>
+                                        <router-link to="/supplier" class="btn btn-sm btn-primary" id="add_new"> all
+                                             Supplier</router-link>
 
                                    </div>
                                    <div class="card-body">
-                                        <form @submit.prevent="employeeInsert" enctype="multipart/form-data">
+                                        <form @submit.prevent="supplierInsert" enctype="multipart/form-data">
                                              <div class="row">
                                                   <div class="col">
                                                        <div class="form-floating mb-3">
@@ -50,35 +51,19 @@
                                                             <label for="address">Address</label>
                                                        </div>
                                                   </div>
-                                                  <div class="col">
-                                                       <div class="form-floating mb-3">
-                                                            <input name="salary" class="form-control" id="salary" type="text"
-                                                                 placeholder="salary" v-model="form.salary" />
-                                                            <small class="text-danger" v-if="errors.salary">{{
-                                                                 errors.salary[0]
-                                                            }}</small>
-                                                            <label for="salary">Salary</label>
-                                                       </div>
-                                                  </div>
+
                                              </div>
                                              <div class="row">
+
                                                   <div class="col-lg-4">
                                                        <div class="form-floating mb-3">
-                                                            <input name="joiningDate" class="form-control" id="joinDate"
-                                                                 type="date" placeholder="Date" v-model="form.joiningDate" />
-                                                            <small class="text-danger" v-if="errors.joiningDate">{{
-                                                                 errors.joiningDate[0]
+                                                            <input name="shopname" class="form-control" id="shopname"
+                                                                 type="text" placeholder="Shop name"
+                                                                 v-model="form.shopname" />
+                                                            <small class="text-danger" v-if="errors.shopname">{{
+                                                                 errors.shopname[0]
                                                             }}</small>
-                                                            <label for="joinDate">Joining Date</label>
-                                                       </div>
-                                                  </div>
-                                                  <div class="col-lg-4">
-                                                       <div class="form-floating mb-3">
-                                                            <input name="nid" class="form-control" id="nid" type="text"
-                                                                 placeholder="NID" v-model="form.nid" />
-                                                            <small class="text-danger" v-if="errors.nid">{{ errors.nid[0]
-                                                            }}</small>
-                                                            <label for="nid">NID Number</label>
+                                                            <label for="shopname">Shop Name</label>
                                                        </div>
                                                   </div>
                                                   <div class="col-lg-4">
@@ -141,9 +126,7 @@ export default {
                     name: '',
                     email: '',
                     address: '',
-                    salary: '',
-                    joiningDate: '',
-                    nid: '',
+                    shopname: '',
                     phone: '',
                     file: '',
 
@@ -175,10 +158,10 @@ export default {
                     reader.readAsDataURL(file);
                }
           },
-          employeeInsert() {
-               axios.post('/api/employee/', this.form)
+          supplierInsert() {
+               axios.post('/api/supplier/', this.form)
                     .then(() => {
-                         this.$router.push({ name: 'employee' })
+                         this.$router.push({ name: 'supplier' })
                          Toast.fire({
                               icon: "success",
                               type: 'success',

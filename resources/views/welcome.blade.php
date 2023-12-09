@@ -71,6 +71,52 @@
                                   
                                 </nav>
                             </div>
+                            {{-- //supplier --}}
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#spplier" aria-expanded="false" aria-controls="pagesCollapseError">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Supplier
+                               
+                            </a>
+                            <div class="collapse" id="spplier" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <router-link  class="nav-link" to="/supplier-store">Add Supplier </router-link>
+                                    <router-link  class="nav-link" to="/supplier">Supplier List </router-link>
+                                  
+                                </nav>
+                            </div>
+                              {{-- //category --}}
+                           
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#category" aria-expanded="false" aria-controls="pagesCollapseError">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                    Category
+                                   
+                                </a>
+                        
+                            <div class="collapse" id="category" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <router-link  class="nav-link" to="/category-store">Add Category </router-link>
+                                    <router-link  class="nav-link" to="/category">Category List </router-link>
+                                  
+                                </nav>
+                            </div>
+
+                              {{-- //Product --}}
+                             
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#Product" aria-expanded="false" aria-controls="pagesCollapseError">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                    Product
+                                   
+                                </a>
+                            
+                            <div class="collapse" id="Product" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <router-link  class="nav-link" to="/product-store">Add Product </router-link>
+                                    <router-link  class="nav-link" to="/product">Product List </router-link>
+                                  
+                                </nav>
+                            </div>
+
+
                             <a class="nav-link" >
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 <router-link  to="/register"> Register  </router-link>

@@ -5,19 +5,18 @@
                     <div class="row justify-content-center">
                          <div class="col-lg-12">
                               <div class="card shadow-lg border-0 rounded-lg mt-5">
+
+
                                    <div class="card-header">
 
                                         <i class="fas fa-chart-area"></i>
-                                        <a href="" class="" style="font-weight:bold; font-size: 18px;"> Dashboard
-                                        </a> / <span>
-                                             Add Employee </span>
-                                        <router-link to="/employee" class="btn btn-sm btn-primary" id="add_new">
-                                             Employee List</router-link>
-
+                                        Supplier Insert
+                                        <router-link to="/supplier" class="btn btn-sm btn-primary" id="add_new"> All
+                                             Supplier</router-link>
 
                                    </div>
                                    <div class="card-body">
-                                        <form @submit.prevent="employeeInsert" enctype="multipart/form-data">
+                                        <form @submit.prevent="supplierUpdate" enctype="multipart/form-data">
                                              <div class="row">
                                                   <div class="col">
                                                        <div class="form-floating mb-3">
@@ -64,30 +63,24 @@
                                              <div class="row">
                                                   <div class="col-lg-4">
                                                        <div class="form-floating mb-3">
-                                                            <input name="joiningDate" class="form-control" id="joinDate"
-                                                                 type="date" placeholder="Date" v-model="form.joiningDate" />
-                                                            <small class="text-danger" v-if="errors.joiningDate">{{
-                                                                 errors.joiningDate[0]
-                                                            }}</small>
-                                                            <label for="joinDate">Joining Date</label>
-                                                       </div>
-                                                  </div>
-                                                  <div class="col-lg-4">
-                                                       <div class="form-floating mb-3">
-                                                            <input name="nid" class="form-control" id="nid" type="text"
-                                                                 placeholder="NID" v-model="form.nid" />
-                                                            <small class="text-danger" v-if="errors.nid">{{ errors.nid[0]
-                                                            }}</small>
-                                                            <label for="nid">NID Number</label>
-                                                       </div>
-                                                  </div>
-                                                  <div class="col-lg-4">
-                                                       <div class="form-floating mb-3">
                                                             <input name="phone" class="form-control" id="phone" type="text"
                                                                  placeholder="phone" v-model="form.phone" />
                                                             <small class="text-danger" v-if="errors.phone">{{ errors.phone[0]
                                                             }}</small>
                                                             <label for="phone">Phone</label>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                             <div class="row">
+                                                  <div class="col-lg-4">
+                                                       <div class="form-floating mb-3">
+                                                            <input name="shopname" class="form-control" id="phone"
+                                                                 type="text" placeholder="shopname"
+                                                                 v-model="form.shopname" />
+                                                            <small class="text-danger" v-if="errors.shopname">{{
+                                                                 errors.shopname[0]
+                                                            }}</small>
+                                                            <label for="shopname">shop name</label>
                                                        </div>
                                                   </div>
                                              </div>
@@ -112,7 +105,7 @@
 
                                              <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
 
-                                                  <button type="submit" class="btn btn-primary"> Submit</button>
+                                                  <button type="submit" class="btn btn-primary"> Update</button>
                                              </div>
                                         </form>
                                    </div>
@@ -129,11 +122,7 @@
 <script>
 
 export default {
-     created() {
-          if (!User.loggedIn()) {
-               this.$router.push({ name: 'home' })
-          }
-     },
+
 
      data() {
           return {
@@ -141,11 +130,10 @@ export default {
                     name: '',
                     email: '',
                     address: '',
-                    salary: '',
-                    joiningDate: '',
-                    nid: '',
+                    shopname: '',
                     phone: '',
                     file: '',
+                    newPhoto: ''
 
                },
                errors: {
@@ -155,6 +143,12 @@ export default {
           }
      },
      // dataEnd
+     created() {
+          let id = this.$route.params.id
+          axios.get('/api/supplier/' + id)
+               .then(({ data }) => (this.form = data))
+               .catch(console.log('error'))
+     },
      methods: {
           onFileSelected(event) {
                let file = event.target.files[0];
@@ -168,21 +162,22 @@ export default {
                } else {
                     let reader = new FileReader();
                     reader.onload = event => {
-                         this.form.file = event.target.result
-                         console.log(event.target.result);
+                         this.form.newPhoto = event.target.result
+
                     }
                     // console.log(event);
                     reader.readAsDataURL(file);
                }
           },
-          employeeInsert() {
-               axios.post('/api/employee/', this.form)
+          supplierUpdate() {
+               let id = this.$route.params.id
+               axios.patch('/api/supplier/' + id, this.form)
                     .then(() => {
-                         this.$router.push({ name: 'employee' })
+                         this.$router.push({ name: 'supplier' })
                          Toast.fire({
                               icon: "success",
                               type: 'success',
-                              title: "submited  successfully"
+                              title: "updated  successfully"
                          });
                     })
 

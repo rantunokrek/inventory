@@ -94,7 +94,7 @@ login done
 register done
 Noty installation
 https://ned.im/noty/#/installation
-
+// Employee
 name
 email
 address
@@ -106,7 +106,7 @@ phone
 
 
 php artisan make:model Employee -m
-php artisan make:controller Api/EmployeedController -r
+php artisan make:controller Api/EmployeeController -r
 php artisan migrate
 
 composer require intervention/image
@@ -116,5 +116,52 @@ $aliases
 'Image' => Intervention\Image\Facades\Image::class
 published
 php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravelRecent"
+
+// Supplier
+
+name
+email
+phone
+address
+file
+shopname
+
+php artisan make:model Supplier -m
+php artisan make:controller Api/SupplierController -r
+php artisan migrate
+
+// Category
+php artisan make:controller Api/CategoryController -r
+php artisan make:model Category -m
+name
+slugName
+
+//fillable
+ protected $fillable = ['name','slugName'];
+php artisan migrate
+
+
+// Product
+
+php artisan make:model Product -m
+id
+category_id 
+product_name 
+product_code 
+root
+buying_price
+selling_price
+supplier_id 
+buying_date 
+image
+product_quality 
+php artisan make:controller Api/ProductController -r
+
+//fillable
+ protected $fillable = ['name','slugName'];
+php artisan migrate
+
+
+
 
 
