@@ -94,7 +94,7 @@ login done
 register done
 Noty installation
 https://ned.im/noty/#/installation
-// Employee
+// Employee ========
 name
 email
 address
@@ -117,7 +117,7 @@ $aliases
 published
 php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravelRecent"
 
-// Supplier
+// Supplier ========
 
 name
 email
@@ -130,7 +130,7 @@ php artisan make:model Supplier -m
 php artisan make:controller Api/SupplierController -r
 php artisan migrate
 
-// Category
+// Category  ========
 php artisan make:controller Api/CategoryController -r
 php artisan make:model Category -m
 name
@@ -141,7 +141,7 @@ slugName
 php artisan migrate
 
 
-// Product
+// Product crud =======
 
 php artisan make:model Product -m
 id
@@ -160,6 +160,39 @@ php artisan make:controller Api/ProductController -r
 //fillable
  protected $fillable = ['name','slugName'];
 php artisan migrate
+
+// expense crud ==========
+
+php artisan make:controller Api/ExpenseController -r
+php artisan make:model Expense -m
+name
+details
+amount
+
+//fillable
+ protected $fillable = ['details','amount'];
+php artisan migrate
+
+
+
+// Salary ===
+
+php artisan make:controller Api/SalaryController
+php artisan make:model Salary -m
+employee_id 
+amount 
+salary_date 
+salary_month
+salary_year
+
+//fillable
+ protected $fillable = ['employee_id','amount','salary_date','salary_month','salary_year'];
+php artisan migrate
+
+
+
+
+
 
 
 

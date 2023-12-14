@@ -116,6 +116,39 @@
                                 </nav>
                             </div>
 
+                             {{-- //Expense --}}
+                             
+                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#expense" aria-expanded="false" aria-controls="pagesCollapseError">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Expense
+                               
+                            </a>
+                        
+                        <div class="collapse" id="expense" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <router-link  class="nav-link" to="/expense-store">Add Product </router-link>
+                                <router-link  class="nav-link" to="/expense">Product List </router-link>
+                              
+                            </nav>
+                        </div>
+
+                             {{-- //Salary --}}
+                             
+                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#salary" aria-expanded="false" aria-controls="pagesCollapseError">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Salary
+                               
+                            </a>
+                        
+                        <div class="collapse" id="salary" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <router-link  class="nav-link" to="/salary-store">Employee List </router-link>
+                                <router-link  class="nav-link" to="/salary">Salary Read </router-link>
+                               
+                              
+                            </nav>
+                        </div>
+
 
                             <a class="nav-link" >
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
