@@ -148,6 +148,19 @@
                               
                             </nav>
                         </div>
+                         {{-- //Stock --}}
+                             
+                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#stock" aria-expanded="false" aria-controls="pagesCollapseError">
+                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            Stock file
+                           
+                        </a>
+                    
+                    <div class="collapse" id="stock" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <router-link  class="nav-link" to="/stock">Stock view </router-link> 
+                        </nav>
+                    </div>
 
 
                             <a class="nav-link" >
