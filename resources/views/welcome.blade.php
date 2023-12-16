@@ -161,6 +161,19 @@
                             <router-link  class="nav-link" to="/stock">Stock view </router-link> 
                         </nav>
                     </div>
+                    {{-- // Customer --}}
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#ddhdhdh" aria-expanded="false" aria-controls="pagesCollapseError">
+                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                        Customer
+                       
+                    </a>
+                    <div class="collapse" id="ddhdhdh" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <router-link  class="nav-link" to="/customer-store">Add Customer </router-link>
+                            <router-link  class="nav-link" to="/customer">Customer Index </router-link>
+                          
+                        </nav>
+                    </div>
 
 
                             <a class="nav-link" >

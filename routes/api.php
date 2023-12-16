@@ -24,6 +24,8 @@ Route::resource('/supplier', 'Api\SupplierController');
 Route::resource('/category', 'Api\CategoryController');
 Route::resource('/product', 'Api\ProductController');
 Route::resource('/expense', 'Api\ExpenseController');
+Route::resource('/customer', 'Api\CustomerController');
+
 Route::post('/salary/{id}', 'Api\SalaryController@PaidSaraly');
 Route::get('/salary', 'Api\SalaryController@allSalary');
 Route::get('/salary/view/{id}', 'Api\SalaryController@Salary_view');

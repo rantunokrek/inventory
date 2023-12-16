@@ -188,7 +188,25 @@ salary_year
 //fillable
  protected $fillable = ['employee_id','amount','salary_date','salary_month','salary_year'];
 php artisan migrate
+
 // stock
+php artisan make:controller Api/StockController
+
+// Customer ===
+
+php artisan make:controller Api/CustomerController -r
+php artisan make:model Customer -m
+
+customer_name 
+customer_email 
+customer_phone
+customer_address
+customer_photo
+
+//fillable
+ protected $fillable = ['customer_name','customer_email','customer_phone','customer_address','customer_photo'];
+php artisan migrate
+
 
 
 
