@@ -34,3 +34,6 @@ const app = new Vue({
     el: '#app',
     router
 })
+
+
+window.Reload = new Vue();

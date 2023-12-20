@@ -41,6 +41,10 @@ let Customer_store = require('./components/customer/create.vue').default;
 let Customer_index = require('./components/customer/index.vue').default;
 let Customer_edit = require('./components/customer/edit.vue').default;
 
+// Pos
+let PosSale = require('./components/pos/pointofsale.vue').default;
+
+
 
 export const routes = [
      { path: '/', component: login, name: '/' },
@@ -81,6 +85,8 @@ export const routes = [
      { path: '/customer-store', component: Customer_store, name: 'customer-store' },
      { path: '/customer', component: Customer_index, name: 'customer' },
      { path: '/customer-edit/:id', component: Customer_edit, name: 'customer-edit' },
+     // pos
+     { path: '/possale', component: PosSale, name: 'possale' },
 
 
 

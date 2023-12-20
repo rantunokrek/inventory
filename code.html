@@ -1,6 +1,7 @@
 
 C:\xampp\htdocs\laravel-inventory
 C:\admin-templates\startbootstrap-sb-admin-gh-pages
+https://github.com/sohidulIslam353/dart-programming
 
 //using node v20.9.0
 //using npm 10.1.0
@@ -207,8 +208,36 @@ customer_photo
  protected $fillable = ['customer_name','customer_email','customer_phone','customer_address','customer_photo'];
 php artisan migrate
 
+// Pos crud =======
 
+php artisan make:model Pos -m
 
+$table->bigIncrements('id');
+$table->integer('pro_id');
+$table->string('pro_name')->nullable();
+$table->string('pro_quantity')->nullable();
+$table->string('product_price')->nullable();
+$table->string('sub_total')->nullable();
+$table->timestamps();
+
+php artisan make:controller Api/PosController -r
+
+//fillable
+ protected $fillable = ['pro_id','pro_name','pro_quantity','product_price','sub_total'];
+php artisan migrate
+
+// Cart
+php artisan make:controller Api/CartController
+
+// extra
+php artisan make:model Extra -m
+  $table->integer('vat')->nullable(0);
+            $table->string('logo');
+            $table->string('favicon')->nullable();
+            $table->string('phone');
+            $table->string('email');
+            $table->string('address');
+php artisan migrate
 
 
 
