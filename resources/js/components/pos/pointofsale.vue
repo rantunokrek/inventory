@@ -62,6 +62,14 @@
                                    Sub Total:
                                    <strong>{{ subtotal }} Tk</strong>
                               </li>
+                              <li class="list-group-item d-flex justify-content-between align-items-center">
+                                   Vat:
+                                   <strong>{{ vats.vat }} % </strong>
+                              </li>
+                              <li class="list-group-item d-flex justify-content-between align-items-center">
+                                   Total:
+                                   <strong>{{ subtotal * vats.vat / 100 + subtotal }} Tk </strong>
+                              </li>
 
                          </ul>
                          <br>
@@ -278,6 +286,7 @@ export default {
           this.allProduct();
           this.allCategory();
           this.allCustomer();
+          this.vat();
           this.cartProduct();
 
           Reload.$on('AfterAdd', () => {
@@ -299,10 +308,14 @@ export default {
                categories: '',
                getproducts: [],
                carts: [],
+               pay: '',
+               due: '',
+               payby: '',
                searchTerm: '',
                getsearchTerm: '',
                customers: '',
                errors: '',
+               vats: '',
 
           }
      },
@@ -316,6 +329,22 @@ export default {
                return this.getproducts.filter(getproduct => {
                     return getproduct.product_name.match(this.getsearchTerm)
                })
+          },
+          qty() {
+               let sum = 0;
+               for (let index = 0; index < this.carts.length; index++) {
+                    sum += (parseFloat(this.carts[index].pro_quantity));
+
+               }
+               return sum;
+          },
+          subtotal() {
+               let sum = 0;
+               for (let index = 0; index < this.carts.length; index++) {
+                    sum += (parseFloat(this.carts[index].pro_quantity) * parseFloat(this.carts[index].product_price));
+
+               }
+               return sum;
           },
 
      },
@@ -361,6 +390,7 @@ export default {
 
                     })
           },
+
           decrement(id) {
                axios.get('/api/cart/decrement/' + id)
                     .then(() => {
@@ -370,6 +400,30 @@ export default {
                               type: 'error',
                               title: "Removed  successfully"
                          });
+
+                    })
+          },
+          vat() {
+               axios.get('/api/vats')
+                    .then(({ data }) => (this.vats = data))
+                    .catch()
+          },
+
+          orderdone() {
+               let total = this.subtotal * this.vats.vat / 100 + this.subtotal;
+               var data = {
+                    qty: this.qty, subtotal: this.subtotal, customer_id: this.customer_id, payby: this.payby, pay: this.pay,
+                    due: this.due, vat: this.vats.vat, total: total
+               }
+               axios.post('/api/orderdone/', data)
+                    .then(() => {
+
+                         Toast.fire({
+                              icon: "success",
+                              type: 'success',
+                              title: "submited  successfully"
+                         });
+                         this.$router.push({ name: 'home' })
 
                     })
           },

@@ -189,6 +189,20 @@
                         </nav>
                     </div>
 
+                        {{-- order --}}
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#order" aria-expanded="false" aria-controls="pagesCollapseError">
+                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                       Order
+                       
+                    </a>
+                    <div class="collapse" id="order" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <router-link  class="nav-link"  to="/order"> Order View </router-link>
+                            <router-link  class="nav-link" to="/search-order">Search Order </router-link>
+                          
+                        </nav>
+                    </div>
+
 
                             <a class="nav-link" >
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -196,6 +210,9 @@
                             </a>
                       
                             
+
+
+
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
